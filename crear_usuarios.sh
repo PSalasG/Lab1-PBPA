@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo useradd -m -N $1 # Creo el ususario sin un grupo propio para no crear grupos innecesarios.
+sudo useradd -m -N $1 2> /dev/null # Creo el ususario sin un grupo propio para no crear grupos innecesarios.
 
 if [ $? = 9 ]; then
 	echo "El usuario $1 ya existe"
@@ -9,7 +9,7 @@ else
 	echo "El usuario $1 fue creado con éxito"
 fi
 
-sudo groupadd $2 # Crea el grupo e imprime la confirmación.
+sudo groupadd $2 2> /dev/null # Crea el grupo e imprime la confirmación.
 
 if [ $? = 9 ]; then
         echo "El grupo $2 ya existe"
